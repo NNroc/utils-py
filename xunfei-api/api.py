@@ -10,7 +10,8 @@ SPARKAI_API_KEY = 'a7555bcb3e1135275dfb32ec7a83cca0'
 # 星火认知大模型Spark Max的domain值，其他版本大模型domain值请前往文档（https://www.xfyun.cn/doc/spark/Web.html）查看
 SPARKAI_DOMAIN = '4.0Ultra'
 tran = [
-    "Gaoxin Hospital of The First Affilated Hospital of Anhui Medical University, Hefei, Anhui, 230088, China|Beijing Cancer Hospital, Beijing, Beijing, 100142, China|Fujian Province Oncology Hospital, Fuzhou, Fujian, 350014, China|Harbin Medical University Cancer Hospital, Harbin, Heilongjiang, 150081, China|Hunan Provincial Tumor Hospital/Division of Oncology, Changsha, Hunan, 410013, China|The first hospital of jilin university, Changchun, Jilin, 130021, China|Jilin Provincial Cancer Hospital, Changchun, Jilin, 130103, China|Tangdu Hospital of Fourth Military Medical University, Xi'an, Shanxi, 710000, China|Sichuan Province Cancer Hospital/Department of Pulmonary Tumor, Chengdu, Sichuan, 610041, China|West China Hospital, Sichuan University, Cancer center, Chengdu, Sichuan, 610041, China|The Second Affiliated Hospital of Zhejiang University College of Medicine, Hangzhou, Zhejiang, 310009, China|Sir Run Run Shaw Hospital of College of Medicine of Zhejiang University, Center for Oncology, Hangzhou, Zhejiang, 310016, China|Zhejiang Cancer Hospital, Hangzhou, Zhejiang, 310022, China|Fifth Medical Center of PLA General Hospital, Beijing, 100071, China|Beijing Chest Hospital, Capital Medical University, Beijing, 101149, China|Guangdong Provincial People's Hospital, Guangzhou, 510000, China|The First Affiliated Hospital Zhejiang University School of Medicine, Hangzhou, Zhejiang, 310003, China|General Hospital of Eastern Theater Command, Nanjing, Jiangsu, China|Shanghai Chest Hospital, Shanghai, 200030, China|Fudan University Shanghai Cancer Center, Shanghai, 200032, China|Zhongshan Hospital, Fudan University, Shanghai, 200032, China"
+"与主流BioNER不同，我们将整个文档视为一组示例，从而能够整合更远距离的上下文信息。Unlike mainstream BioNER, we consider the entire document as a set of examples, which"
+
 ]
 
 if __name__ == '__main__':
@@ -24,7 +25,7 @@ if __name__ == '__main__':
     )
     for s in tran:
         # 输入内容
-        system = "According to content, extract and return military related unit segments, separated by the symbol '|', such as: Tangdu Hospital of Fourth Military Medical University, Xi'an, Shanxi, 710000, China|Affiliated to the Army Medical University, Chongqing, Chongqing, 400038, China|...\n"
+        system = "将下面句子的中文翻译成英文，如果已给英文，则在英文的基础上补充，给我返回整个句子。要求：要专业，不啰嗦，学术，\n"
         content = "content: " + s
         messages = [ChatMessage(role="system", content=system),
                     ChatMessage(role="user", content=content), ]
